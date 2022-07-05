@@ -302,14 +302,21 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#imports">
-   Imports
+  <a class="reference internal nav-link" href="#getting-set-up">
+   Getting set up
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loading-in-and-preprocessing-data">
-   Loading in and preprocessing data
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imports">
+     Imports
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-in-and-preprocessing-data">
+     Loading in and preprocessing data
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#making-the-plot">
@@ -334,8 +341,8 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#best-practices-when-using-color">
-   Best Practices when Using Color
+  <a class="reference internal nav-link" href="#colormap-best-practices">
+   Colormap Best Practices
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -444,8 +451,10 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </ul>
 </div>
 <hr class="docutils" />
+<div class="section" id="getting-set-up">
+<h2>Getting set up<a class="headerlink" href="#getting-set-up" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <div class="section" id="imports">
-<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<h3>Imports<a class="headerlink" href="#imports" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
@@ -461,16 +470,10 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/hcraker/miniconda3/envs/colorbar-cookbook/lib/python3.10/site-packages/geocat/viz/cmaps.py:9: DeprecationWarning: geocat.viz.cmaps is deprecated, use cmaps instead
-  warnings.warn(&quot;geocat.viz.cmaps is deprecated, use cmaps instead&quot;,
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="loading-in-and-preprocessing-data">
-<h2>Loading in and preprocessing data<a class="headerlink" href="#loading-in-and-preprocessing-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<h3>Loading in and preprocessing data<a class="headerlink" href="#loading-in-and-preprocessing-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <p>The data we are using for this example is from the <a class="reference external" href="https://github.com/NCAR/geocat-datafiles">GeoCAT-datafiles</a> repository on GitHub. The specific file is <code class="docutils literal notranslate"><span class="pre">TS.cam3.toga_ENS.1950-2000.nc</span></code>, and it contains surafce temeprature data from the first run of the CAM3 T85 TOGA model run. We load the data file in using the xarray default engine.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -480,10 +483,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/hcraker/miniconda3/envs/colorbar-cookbook/lib/python3.10/site-packages/xarray/backends/plugins.py:98: DeprecationWarning: SelectableGroups dict interface is deprecated. Use select.
-  entrypoints = entry_points().get(&quot;xarray.backends&quot;, ())
-</pre></div>
-</div>
 <div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
 <defs>
 <symbol id="icon-database" viewBox="0 0 32 32">
@@ -848,13 +847,13 @@ Attributes:
     source_mss:     /BRUCEB/csm/eul128x256_d63vamip_trpsst_01/atm/hist/
     source:         /home/asphilli/DSets/t85toga.vartscreate.ncl
     creation_date:  Mon Jan 31 14:34:17 MST 2005
-    history:        Fri Aug  5 13:31:09 2005: ncea CAM3TOGA01/TS.cam3.toga_01...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-cd274e10-4465-4747-a356-9517fc20ee49' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-cd274e10-4465-4747-a356-9517fc20ee49' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 612</li><li><span class='xr-has-index'>lat</span>: 128</li><li><span class='xr-has-index'>lon</span>: 256</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-3e69e45a-5ec4-42f5-a062-11f0d47e3e1e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3e69e45a-5ec4-42f5-a062-11f0d47e3e1e' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1950-02-01 00:00:00 ... 2001-01-...</div><input id='attrs-6ded2864-f2b5-4b79-a76d-9b3b126ccf36' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6ded2864-f2b5-4b79-a76d-9b3b126ccf36' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ca2f9d8c-b1e2-44e8-97d7-8f9c08e8459d' class='xr-var-data-in' type='checkbox'><label for='data-ca2f9d8c-b1e2-44e8-97d7-8f9c08e8459d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1950, 2, 1, 0, 0, 0, 0, has_year_zero=True),
+    history:        Fri Aug  5 13:31:09 2005: ncea CAM3TOGA01/TS.cam3.toga_01...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-66a3a4bf-bc80-4e89-b4c8-3315e78fa158' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-66a3a4bf-bc80-4e89-b4c8-3315e78fa158' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 612</li><li><span class='xr-has-index'>lat</span>: 128</li><li><span class='xr-has-index'>lon</span>: 256</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a6079940-52f0-40cb-bfdb-4b226fc17e52' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a6079940-52f0-40cb-bfdb-4b226fc17e52' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1950-02-01 00:00:00 ... 2001-01-...</div><input id='attrs-3d4d8459-ebdc-4c27-8d44-0aeb4129376b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3d4d8459-ebdc-4c27-8d44-0aeb4129376b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b187b1f2-2f46-405e-bb75-b2b52fc015c1' class='xr-var-data-in' type='checkbox'><label for='data-b187b1f2-2f46-405e-bb75-b2b52fc015c1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1950, 2, 1, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(1950, 3, 1, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(1950, 4, 1, 0, 0, 0, 0, has_year_zero=True), ...,
        cftime.DatetimeNoLeap(2000, 11, 1, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2000, 12, 1, 0, 0, 0, 0, has_year_zero=True),
        cftime.DatetimeNoLeap(2001, 1, 1, 0, 0, 0, 0, has_year_zero=True)],
-      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-88.93 -87.54 ... 87.54 88.93</div><input id='attrs-8edb6b24-ca54-4780-aad6-6024cdc67979' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8edb6b24-ca54-4780-aad6-6024cdc67979' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-96f639a6-c163-4bea-9c99-562e9c8f0d2e' class='xr-var-data-in' type='checkbox'><label for='data-96f639a6-c163-4bea-9c99-562e9c8f0d2e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([-88.927735, -87.538705, -86.141472, -84.742386, -83.342596, -81.942466,
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-88.93 -87.54 ... 87.54 88.93</div><input id='attrs-e023d8fd-2d6d-41de-832e-f5cbbe842866' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e023d8fd-2d6d-41de-832e-f5cbbe842866' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3fb4696c-3942-48e3-bef5-7c6a26e68ae9' class='xr-var-data-in' type='checkbox'><label for='data-3fb4696c-3942-48e3-bef5-7c6a26e68ae9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([-88.927735, -87.538705, -86.141472, -84.742386, -83.342596, -81.942466,
        -80.542146, -79.14171 , -77.741196, -76.340629, -74.940023, -73.539389,
        -72.138732, -70.738059, -69.337372, -67.936673, -66.535966, -65.135251,
        -63.73453 , -62.333803, -60.933072, -59.532337, -58.131598, -56.730857,
@@ -875,7 +874,7 @@ Attributes:
         62.333803,  63.73453 ,  65.135251,  66.535966,  67.936673,  69.337372,
         70.738059,  72.138732,  73.539389,  74.940023,  76.340629,  77.741196,
         79.14171 ,  80.542146,  81.942466,  83.342596,  84.742386,  86.141472,
-        87.538705,  88.927735])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 1.406 2.812 ... 357.2 358.6</div><input id='attrs-5ba06326-826f-4f3f-b020-dde32360b59d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5ba06326-826f-4f3f-b020-dde32360b59d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-206a6366-09b8-4bee-8e9c-942d1228fa33' class='xr-var-data-in' type='checkbox'><label for='data-206a6366-09b8-4bee-8e9c-942d1228fa33' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.     ,   1.40625,   2.8125 , ..., 355.78125, 357.1875 , 358.59375])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-aab6acdb-2891-4f5c-98b9-609b9ef2fc09' class='xr-section-summary-in' type='checkbox'  checked><label for='section-aab6acdb-2891-4f5c-98b9-609b9ef2fc09' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>TS</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9a8a0c66-441b-4340-985b-a708fe4a139d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9a8a0c66-441b-4340-985b-a708fe4a139d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b6c0ca5b-adf2-477d-8291-44ecd51bc8ce' class='xr-var-data-in' type='checkbox'><label for='data-b6c0ca5b-adf2-477d-8291-44ecd51bc8ce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>K</dd><dt><span>long_name :</span></dt><dd>Surface temperature (radiative)</dd><dt><span>cell_method :</span></dt><dd>time: mean</dd></dl></div><div class='xr-var-data'><pre>[20054016 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7a51d99e-a71e-4837-8171-462bd544f3bf' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7a51d99e-a71e-4837-8171-462bd544f3bf' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>CAM3 T85 TOGA Run #1 (eul128x256_d63vamip_trpsst_01), run by Bruce Briegleb</dd><dt><span>source_mss :</span></dt><dd>/BRUCEB/csm/eul128x256_d63vamip_trpsst_01/atm/hist/</dd><dt><span>source :</span></dt><dd>/home/asphilli/DSets/t85toga.vartscreate.ncl</dd><dt><span>creation_date :</span></dt><dd>Mon Jan 31 14:34:17 MST 2005</dd><dt><span>history :</span></dt><dd>Fri Aug  5 13:31:09 2005: ncea CAM3TOGA01/TS.cam3.toga_01.1950-2000.nc CAM3TOGA02/TS.cam3.toga_02.1950-2000.nc CAM3TOGA03/TS.cam3.toga_03.1950-2000.nc CAM3TOGA04/TS.cam3.toga_04.1950-2000.nc CAM3TOGA05/TS.cam3.toga_05.1950-2000.nc CAM3TOGAENS/TS.cam3.toga_ENS.1950-2000.nc</dd></dl></div></li></ul></div></div></div></div>
+        87.538705,  88.927735])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 1.406 2.812 ... 357.2 358.6</div><input id='attrs-89208e09-9ab5-4ec6-96ce-1200569f98e5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-89208e09-9ab5-4ec6-96ce-1200569f98e5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-77ed5d98-e601-4def-8269-495cb2d32a54' class='xr-var-data-in' type='checkbox'><label for='data-77ed5d98-e601-4def-8269-495cb2d32a54' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.     ,   1.40625,   2.8125 , ..., 355.78125, 357.1875 , 358.59375])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a0baa9fc-e463-416d-8c40-a4e42660e148' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a0baa9fc-e463-416d-8c40-a4e42660e148' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>TS</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-7dc26bce-bd0d-46bf-bf45-1ea4c6293aa7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7dc26bce-bd0d-46bf-bf45-1ea4c6293aa7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-73dd3e69-d517-4600-a8d7-2bb00e5d3fbc' class='xr-var-data-in' type='checkbox'><label for='data-73dd3e69-d517-4600-a8d7-2bb00e5d3fbc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>K</dd><dt><span>long_name :</span></dt><dd>Surface temperature (radiative)</dd><dt><span>cell_method :</span></dt><dd>time: mean</dd></dl></div><div class='xr-var-data'><pre>[20054016 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7b250475-d81f-41cc-ba7e-d3c6d7c00a62' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7b250475-d81f-41cc-ba7e-d3c6d7c00a62' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>CAM3 T85 TOGA Run #1 (eul128x256_d63vamip_trpsst_01), run by Bruce Briegleb</dd><dt><span>source_mss :</span></dt><dd>/BRUCEB/csm/eul128x256_d63vamip_trpsst_01/atm/hist/</dd><dt><span>source :</span></dt><dd>/home/asphilli/DSets/t85toga.vartscreate.ncl</dd><dt><span>creation_date :</span></dt><dd>Mon Jan 31 14:34:17 MST 2005</dd><dt><span>history :</span></dt><dd>Fri Aug  5 13:31:09 2005: ncea CAM3TOGA01/TS.cam3.toga_01.1950-2000.nc CAM3TOGA02/TS.cam3.toga_02.1950-2000.nc CAM3TOGA03/TS.cam3.toga_03.1950-2000.nc CAM3TOGA04/TS.cam3.toga_04.1950-2000.nc CAM3TOGA05/TS.cam3.toga_05.1950-2000.nc CAM3TOGAENS/TS.cam3.toga_ENS.1950-2000.nc</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>The file has data from different timesteps of the model. Say we want to plot temperature data from two different timesteps and compare them visually. To see the biggest change, let’s choose a timestep from February and one from August in the same year. We also need to select the variable of interest which is <code class="docutils literal notranslate"><span class="pre">TS</span></code> for surface temperature.</p>
 <p>To create the colorbar, we’ll need to know what the minimum and maximum temperatures are. We find those here as well.</p>
@@ -886,6 +885,7 @@ Attributes:
 <span class="n">min_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="n">first_step</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">last_step</span><span class="o">.</span><span class="n">min</span><span class="p">()])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 <span class="n">max_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">max</span><span class="p">([</span><span class="n">first_step</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">last_step</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -962,8 +962,8 @@ Attributes:
 </div>
 </div>
 </div>
-<div class="section" id="best-practices-when-using-color">
-<h2>Best Practices when Using Color<a class="headerlink" href="#best-practices-when-using-color" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="section" id="colormap-best-practices">
+<h2>Colormap Best Practices<a class="headerlink" href="#colormap-best-practices" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <p>Color is a useful tool for communicating information. However, there are important factors to consider when choosing color palettes that may not be obvious at first.</p>
 <div class="section" id="printing-in-black-and-white">
 <h3>Printing in Black and White<a class="headerlink" href="#printing-in-black-and-white" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
@@ -1092,7 +1092,7 @@ Attributes:
         
           By the <a href="https://projectpythia.org/">Project Pythia</a> Community.
         
-          Last updated on 30 June 2022.
+          Last updated on 5 July 2022.
         </p>
       </div>
     </div>
