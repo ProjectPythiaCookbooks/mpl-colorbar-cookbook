@@ -297,13 +297,18 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#section-1-replace-with-the-title-of-this-section-e-g-foundations">
-     Section 1 ( Replace with the title of this section, e.g. “Foundations” )
+    <a class="reference internal nav-link" href="#getting-set-up">
+     Getting Set Up
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#section-2-replace-with-the-title-of-this-section-e-g-example-workflows">
-     Section 2 ( Replace with the title of this section, e.g. “Example workflows” )
+    <a class="reference internal nav-link" href="#making-the-plot">
+     Making the Plot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#colormap-best-practices">
+     Colormap Best Practices
     </a>
    </li>
   </ul>
@@ -336,15 +341,15 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
               
               <div>
                 
-  <a class="reference internal image-reference" href="_images/thumbnail.png"><img alt="thumbnail" src="_images/thumbnail.png" style="width: 300px;" /></a>
+  <a class="reference internal image-reference" href="_images/thumbnail.png"><img alt="Two world maps with temperature contours and one colorbar." src="_images/thumbnail.png" style="width: 300px;" /></a>
 <div class="tex2jax_ignore mathjax_ignore section" id="maplotlib-colorbars-cookbook">
 <h1>Maplotlib Colorbars Cookbook<a class="headerlink" href="#maplotlib-colorbars-cookbook" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
 <p><a class="reference external" href="https://github.com/ProjectPythiaCookbooks/mpl-colorbar-cookbook/actions/workflows/nightly-build.yaml"><img alt="nightly-build" src="https://github.com/ProjectPythiaCookbooks/mpl-colorbar-cookbook/actions/workflows/nightly-build.yaml/badge.svg" /></a>
 <a class="reference external" href="https://binder-staging.2i2c.cloud/v2/gh/ProjectPythiaCookbooks/mpl-colorbar-cookbook/main?labpath=notebooks"><img alt="Binder" src="https://binder-staging.2i2c.cloud/badge_logo.svg" /></a></p>
-<p>This Project Pythia Cookbook covers … (replace <code class="docutils literal notranslate"><span class="pre">...</span></code> with the main subject of your cookbook … e.g., <em>working with radar data in Python</em>)</p>
+<p>This Project Pythia Cookbook covers how to assign the same colorbar to multiple plots in Matplotlib. It also covers the recommended best practices when using color in visualizations.</p>
 <div class="section" id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p>(Add a few sentences stating why this cookbook will be useful. What skills will you, “the chef”, gain once you have reached the end of the cookbook?)</p>
+<p>This cookbook walks the user through assigning a colorbar to multiple plots, how to manipulate some select features of a colorbar, and how to choose colormaps appropriately.</p>
 </div>
 <div class="section" id="authors">
 <h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
@@ -358,14 +363,18 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </div>
 <div class="section" id="structure">
 <h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p>(State one or more sections that will comprise the notebook. E.g., <em>This cookbook is broken up into two main sections - “Foundations” and “Example Workflows.”</em> Then, describe each section below.)</p>
-<div class="section" id="section-1-replace-with-the-title-of-this-section-e-g-foundations">
-<h3>Section 1 ( Replace with the title of this section, e.g. “Foundations” )<a class="headerlink" href="#section-1-replace-with-the-title-of-this-section-e-g-foundations" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
-<p>(Add content for this section, e.g., “The foundational content includes … “)</p>
+<p>This cookbook is broken up into three main sections - “Getting Set Up”, “Making the Plot”, and “Colormap Best Practices”</p>
+<div class="section" id="getting-set-up">
+<h3>Getting Set Up<a class="headerlink" href="#getting-set-up" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>The setup for this cookbook includes importing the required packages and loading in the data. A brief description of the data and how to use xarray to read the dataset is included.</p>
 </div>
-<div class="section" id="section-2-replace-with-the-title-of-this-section-e-g-example-workflows">
-<h3>Section 2 ( Replace with the title of this section, e.g. “Example workflows” )<a class="headerlink" href="#section-2-replace-with-the-title-of-this-section-e-g-example-workflows" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
-<p>(Add content for this section, e.g., “Example workflows include … “)</p>
+<div class="section" id="making-the-plot">
+<h3>Making the Plot<a class="headerlink" href="#making-the-plot" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>This is the primary section of the cookbook. It shows how to display two contour plots on the same figure and use the same colorbar for both plots.</p>
+</div>
+<div class="section" id="colormap-best-practices">
+<h3>Colormap Best Practices<a class="headerlink" href="#colormap-best-practices" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<p>This section explains how to make accessible figures by carefully choosing the colormaps used. It shows how our figure appears in grayscale and to someone with deuteranomaly color deficiency (color blindness).</p>
 </div>
 </div>
 <div class="section" id="running-the-notebooks">
@@ -497,7 +506,7 @@ jupyter lab
         
           By the <a href="https://projectpythia.org/">Project Pythia</a> Community.
         
-          Last updated on 5 July 2022.
+          Last updated on 6 July 2022.
         </p>
       </div>
     </div>
